@@ -1,0 +1,80 @@
+﻿<phone:PhoneApplicationPage x:Class="StretchTest.MainPage"
+                            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                            xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+                            xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+                            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                            mc:Ignorable="d"
+                            x:Name="MainPagePage"
+                            FontFamily="{StaticResource PhoneFontFamilyNormal}"
+                            FontSize="{StaticResource PhoneFontSizeNormal}"
+                            Foreground="{StaticResource PhoneForegroundBrush}"
+                            SupportedOrientations="Portrait"
+                            Orientation="Portrait"
+                            shell:SystemTray.IsVisible="True"
+                            shell:SystemTray.Opacity="0">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot"
+          Background="Transparent">
+        
+        <Grid x:Name="ImageContainer"
+              VerticalAlignment="Top"
+              CacheMode="BitmapCache"
+              RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <CompositeTransform x:Name="ImageTransform" />
+            </Grid.RenderTransform>
+
+            <Image Source="/Assets/chitanda.jpg"
+                   Stretch="None"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Top"
+                   x:Name="Image" />
+        </Grid>
+        
+        <ScrollViewer x:Name="Scroller"
+                      ManipulationMode="Control"
+                      Background="#33000000">
+            <Grid x:Name="ScrollGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="500" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <StackPanel x:Name="TitlePanel"
+                            VerticalAlignment="Bottom"
+                            Margin="0,0,0,24">
+                    <TextBlock Style="{StaticResource PhoneTextTitle1Style}"
+                               Margin="24,0"
+                               TextWrapping="Wrap"
+                               Text="The Title" />
+                    <TextBlock Style="{StaticResource PhoneTextTitle2Style}"
+                               Margin="24,0"
+                               TextWrapping="Wrap"
+                               Text="(with snarky subtitle)" />
+                </StackPanel>
+
+                <StackPanel x:Name="ContentPanel"
+                            Grid.Row="1"
+                            Background="{StaticResource PhoneChromeBrush}">
+                    <TextBlock HorizontalAlignment="Left"
+                               TextWrapping="Wrap"
+                               VerticalAlignment="Top"
+                               Style="{StaticResource PhoneTextTitle3Style}"
+                               Margin="24">
+        				<Run Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras nec erat massa. Phasellus accumsan ornare velit non vestibulum. Quisque nulla mi, condimentum sit amet sapien quis, blandit facilisis leo. Praesent pulvinar, justo at ornare aliquet, tellus massa varius metus, nec euismod dui metus a mauris. Sed eu erat et nulla varius pharetra. Suspendisse id mi nibh. Donec ac quam vel erat malesuada porttitor convallis condimentum ipsum. Donec risus lectus, auctor dictum mauris et, lacinia condimentum sem." />
+        				<LineBreak />
+                        <LineBreak />
+        				<Run Text="Donec gravida purus non gravida volutpat. Suspendisse id libero non nunc dignissim molestie. Phasellus lobortis sit amet libero non volutpat. Duis viverra, augue ac bibendum eleifend, leo metus tincidunt neque, in malesuada dolor leo ac eros. Ut eget justo faucibus, vulputate ante ac, varius urna. Etiam blandit turpis ac leo tristique scelerisque. Phasellus ac aliquam eros. Curabitur condimentum mi ligula, et porttitor leo consectetur sit amet. " />
+                        <LineBreak />
+                        <LineBreak />
+                        <Run Text=" Sed pellentesque sapien a diam interdum, vitae sagittis velit varius. Curabitur vehicula in velit ac porttitor. Integer nec nunc tellus. Nullam pulvinar magna eu mollis dignissim. Sed mattis at erat id euismod. Vestibulum mattis nunc nec sapien ornare, sit amet tristique diam volutpat. Nulla ut venenatis erat. " />
+                    </TextBlock>
+                </StackPanel>
+            </Grid>
+        </ScrollViewer>
+    </Grid>
+
+</phone:PhoneApplicationPage>
